@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: ryankford/kubernetes-argocd-react:1.0-test
+    ports:
+      - "3000:3000"
+
+
