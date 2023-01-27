@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react
+  namespace: react
+  labels:
+    app: react
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+        - name: kubernetes-argocd-react
+          image: ryankford/kubernetes-argocd-react:1.0-test
+          ports:
+            - name: http
+              containerPort: 3000
