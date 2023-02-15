@@ -20,3 +20,16 @@ You can use the command minikube service react -n react to expose the external I
 Alternatively, you can also use minikube service react -n react --url it will give you the exposed URL of the service, you can use that URL to access the application from browser.
 You can also use minikube ip to get the IP of the minikube cluster, then you can use that IP along with the exposed port to access the application via browser
 Eg: http://minikube-ip:32181
+
+
+    minikube start: This command starts a local Kubernetes cluster using Minikube. Minikube is a tool that allows you to run Kubernetes on your local machine, and minikube start initializes a new cluster.
+
+    minikube status: This command checks the status of the Minikube cluster and reports whether it is running or stopped.
+
+    kubectl create namespace argocd: This command creates a new namespace called argocd in the Kubernetes cluster. A namespace is a way to partition resources in a Kubernetes cluster so that different teams or applications can have their own isolated environment.
+
+    kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml: This command applies the Kubernetes manifest file located at the specified URL (https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml) to the argocd namespace. The manifest file contains the configuration needed to deploy ArgoCD, a continuous delivery tool.
+
+    kubectl port-forward svc/argocd-server -n argocd 8080:443: This command forwards traffic from the local machine's port 8080 to the argocd-server service running in the argocd namespace on port 443. This allows you to access the ArgoCD web UI from your local machine.
+
+    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo: This command retrieves the argocd-initial-admin-secret Kubernetes secret from the argocd namespace and decodes the password field, which contains the initial password for the ArgoCD admin user. The base64 -d command is used to decode the password, and echo is used to print it to the console.
