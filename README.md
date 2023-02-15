@@ -33,3 +33,12 @@ Eg: http://minikube-ip:32181
     kubectl port-forward svc/argocd-server -n argocd 8080:443: This command forwards traffic from the local machine's port 8080 to the argocd-server service running in the argocd namespace on port 443. This allows you to access the ArgoCD web UI from your local machine.
 
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo: This command retrieves the argocd-initial-admin-secret Kubernetes secret from the argocd namespace and decodes the password field, which contains the initial password for the ArgoCD admin user. The base64 -d command is used to decode the password, and echo is used to print it to the console.
+
+
+    kubectl get svc -n argocd: This command lists all the Kubernetes services in the argocd namespace. A service in Kubernetes is an abstraction that defines a logical set of pods and a policy by which to access them.
+
+    kubectl port-forward -n argocd svc/argocd-server 8080:443: This command sets up a port-forwarding connection between the local machine's port 8080 and the argocd-server service's port 443, allowing you to access the ArgoCD web UI on your local machine.
+
+    kubectl get namespaces: This command lists all the namespaces in the Kubernetes cluster.
+
+    kubectl get svc -n react: This command lists all the Kubernetes services in the react namespace. The react namespace may or may not exist in your Kubernetes cluster, and if it does, it would contain services related to applications that are built using the React framework.
