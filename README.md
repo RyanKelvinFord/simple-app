@@ -1,7 +1,9 @@
 minikube start
+
 minikube status
 
 kubectl create namespace argocd
+
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
@@ -11,8 +13,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ADD APPLICATION
 
 kubectl get svc -n argocd
+
 kubectl port-forward -n argocd svc/argocd-server 8080:443
+
 kubectl get namespaces
+
 kubectl get svc -n react
 
 
