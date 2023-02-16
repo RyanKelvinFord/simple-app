@@ -43,3 +43,5 @@
     minikube service react -n react
     
 Overall, these steps are demonstrating how to set up a local development environment for deploying and testing Kubernetes applications using Minikube and Argo CD.
+
+Next steps would be to have ArgoCd deploy the application and have it automatically watch the repository.
